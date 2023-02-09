@@ -97,10 +97,6 @@ const PF_LEFT_SLIDE_OPTION = {
     fadeEffect: {
         crossFade: true
     },
-    // watchSlidesProgress: true,
-    // autoplay: {
-    //     delay: 3000,
-    // },
 }
 const PF_LEFT_SLIDE = new Swiper('.pf_left_slide', PF_LEFT_SLIDE_OPTION);
 
@@ -108,15 +104,13 @@ const PF_RIGHT_SLIDE_OPTION = {
     loop: true,
     slidesPerView: 5,
     spaceBetween: 20,
-    // watchSlidesProgress: true,
-    // thumbs: {
-    //     swiper: PF_LEFT_SLIDE,
-    // },
+    slideToClickedSlide: true,
 }
 const PF_RIGHT_SLIDE = new Swiper('.pf_right_slide', PF_RIGHT_SLIDE_OPTION);
 
 PF_LEFT_SLIDE.controller.control = PF_RIGHT_SLIDE;
 PF_RIGHT_SLIDE.controller.control = PF_LEFT_SLIDE;
+
 
 
 
