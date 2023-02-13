@@ -166,8 +166,8 @@ const MS_SLIDE = new Swiper('.Ms_slide', MS_SLIDE_OPTION);
 
 let player;
 const Y_OPTION = {
-    height: '100%',
-    width: '100%',
+    // height: '100%',
+    // width: '100%',
     videoId: 'raw3Nu0_mBQ',
 }
 
@@ -202,14 +202,46 @@ const V_SWITCH = e => {
     SW ? player.playVideo() : player.pauseVideo();
     SW = !SW;
 }
+
 V_BTN.addEventListener('click', V_SWITCH);
+
+
 
 
 // let SW : 전역변수, 전역변수를 지역변수로 가둬서 쓰는 방법이 없을까??? 클로져...;
 
+// clouser 클로져로 함수 스코프에 변수 뮦어놓기01 (.. )
+// const VV = () => {
+//     let SW = true;
+//     const VV_inner = () => {
+//         console.log(SW);
+//         SW = !SW;
+//     }
+//     return VV_inner;
+// }
+//const DDD = VV();
+//ddd.addEventListener('click', DDD);
+//console.log(SW, SW2);
 
-// <div id='pp' onClick ={()=> console.log('btn')}/>;
 
+
+// clouser 클로져로 함수 스코프에 변수 뮦어놓기02 (.. )
+// const TB = (function () {
+//     let SW = true;
+//     const toggle = e => {
+//         const target = e.target;
+//         target.classList.toggle('on');
+//         SW ? player.playVideo() : player.pauseVideo();
+//         SW = !SW;
+//     }
+//     return toggle;
+// })();
+
+
+// V_BTN.addEventListener('click', TB);
+
+
+// react 예시 (.. )
 // const [on, setOn] = useState(true);
 // <button onClick={()=> setOn(!on)} className={on ? 'on' : ''}></button>
 
