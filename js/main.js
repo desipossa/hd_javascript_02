@@ -244,6 +244,9 @@ V_BTN.addEventListener('click', V_SWITCH);
 // react 예시 (.. )
 // const [on, setOn] = useState(true);
 // <button onClick={()=> setOn(!on)} className={on ? 'on' : ''}></button>
+
+
+
 const MOVIE_UL = document.querySelector('#mainMovie .link');
 const UL_CSS = `
     display: flex; 
@@ -276,7 +279,7 @@ const MOVIE_LINK = [
 // }
 
 
-for (it of MOVIE_LINK) {
+for (const it of MOVIE_LINK) {
     MOVIE_UL.innerHTML += `<li>
             <strong>${it.title}</strong>
             <span>${it.desc}</span>
@@ -285,7 +288,7 @@ for (it of MOVIE_LINK) {
 
 const STRONG = document.querySelectorAll('#mainMovie .link strong');
 
-for (it of STRONG) {
+for (const it of STRONG) {
     it.style.display = 'block'
 }
 
@@ -298,7 +301,7 @@ const MOVIE_UL_TOGGLE = e => {
     let idx = [...MOVIE_UL.children].indexOf(e.target.parentElement);
     console.log(idx);
 
-    for (it of [...MOVIE_UL.children]) {
+    for (const it of [...MOVIE_UL.children]) {
         it.classList.remove('on')
     };
     [...MOVIE_UL.children][idx].classList.add('on');
@@ -307,6 +310,12 @@ const MOVIE_UL_TOGGLE = e => {
 }
 
 MOVIE_UL.addEventListener('click', MOVIE_UL_TOGGLE);
+
+const FOOTER_NAV = [
+
+]
+
+
 
 
 
