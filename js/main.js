@@ -311,9 +311,53 @@ const MOVIE_UL_TOGGLE = e => {
 
 MOVIE_UL.addEventListener('click', MOVIE_UL_TOGGLE);
 
-const FOOTER_NAV = [
+// footer .t_right li a click 일단 a 자체의 새로고침을 막고
+// 전체 li에서는 on을 뗀다.
+// 내 위 부모에다가 class on을 뿥인다.
 
-]
+
+const T_RIGHT = document.querySelectorAll('#footer .t_right li>a');
+const T_RIGHT_BTN = document.querySelectorAll('#footer .t_right button');
+
+console.log(T_RIGHT, T_RIGHT_BTN);
+
+T_RIGHT_BTN.forEach(it => {
+    it.addEventListener('click', () => {
+        it.closest('li').classList.remove('on');
+        //it.parentElement.parentElement.classList.remove('on')
+    })
+})
+
+const R_TAB = (it, idx) => {
+    // T_RIGHT.forEach(it => it.classList.remove('on'));
+    // it.classList.add('on');
+    // const sbr = [...T_RIGHT].filter(el => el !== it);
+    // console.log(sbr);
+
+    for (el of T_RIGHT) {
+        if (el !== it) {
+            el.parentElement.classList.remove('on')
+        }
+    }
+    //sbr.forEach(it => it.parentElement.classList.remove('on'));
+    it.parentElement.classList.toggle('on');
+}
+
+T_RIGHT.forEach((it, idx) => {
+    it.addEventListener('click', e => {
+        e.preventDefault();
+        R_TAB(it, idx)
+    });
+});
+
+
+// const [on, setOn] = useSate('')
+// {
+//     <li className={on}>
+
+//     </li>
+//     <a onClick = {()=> setOn(!on)}></a>
+// }
 
 
 
